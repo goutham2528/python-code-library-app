@@ -1,0 +1,15 @@
+pipeline {
+    agent any 
+        stages {
+          stage ("Build") {
+              steps {
+                  sh 'docker build -t image2 .'
+              }
+          }
+          stage ('configure') {
+              steps {
+                  sh 'docker run -itd --name book -p 5000:5000 image2'
+              }
+          }
+    }
+}
