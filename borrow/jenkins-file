@@ -1,0 +1,15 @@
+pipeline {
+    agent any 
+        stages {
+          stage ("Build") {
+              steps {
+                  sh 'docker build -t image3 .'
+              }
+          }
+          stage ('configure') {
+              steps {
+                  sh 'docker run -itd --name borrow -p 5000:5000 image3'
+              }
+          }
+    }
+}
