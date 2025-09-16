@@ -8,7 +8,7 @@ pipeline {
           }
           stage ('configure') {
               steps {
-                  sh 'docker run -itd --name zomato -p 5000:5000 image1'
+                  sh 'docker run -itd --name auth -p 5000:5000 image1'
               }
           }
     }
